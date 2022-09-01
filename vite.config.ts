@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import uni from "@dcloudio/vite-plugin-uni";
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
+import uni from '@dcloudio/vite-plugin-uni'
+import { resolve } from 'path'
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir)
 }
@@ -15,6 +15,6 @@ export default defineConfig({
         find: /\/@\//,
         replacement: pathResolve('src') + '/'
       }
-    ] 
+    ]
   }
-});
+})
