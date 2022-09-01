@@ -3,6 +3,7 @@
 ## 使用技术
 
 ### vue3+vite+ts+pinia
+    npx degit dcloudio/uni-preset-vue#vite-ts my-vue3-project
 
 ### 使用 eslint 做代码规范  .eslintignore配置不需要的校验
 
@@ -64,6 +65,8 @@
         }
     }
 ### 安装dart-sass代替node-sass
-
+    pnpm add sass -S -D
+### 使用Pinia状态管理
+    pnpm add pinia -D
 
    
