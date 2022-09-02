@@ -69,4 +69,7 @@
 ### 使用Pinia状态管理
     pnpm add pinia -D
 
+### 安装网络请求工具 https://www.quanzhan.co/luch-request/
+    pnpm add luch-request -S
+
    
