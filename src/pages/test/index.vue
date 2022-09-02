@@ -4,25 +4,28 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
-    <button @click="handleToPath">跳转测试页面</button>
+    <button @click="handleClick">点击获取变化store{{ text }}</button>
   </view>
 </template>
 
 <script setup lang="ts">
   import { onLoad, onShow } from '@dcloudio/uni-app'
-  import { ref, getCurrentInstance, computed, watch } from 'vue'
+  import { ref, getCurrentInstance, computed, watch, onMounted } from 'vue'
   import { useAppStore } from '/@/store/modules/app'
 
   onLoad((options) => {
-    console.log('页面初始化')
+    console.log('测试页面初始化', options)
   })
   onShow(() => {
-    console.log('页面出现时')
+    console.log('测试页面出现时')
   })
 
-  const { proxy } = getCurrentInstance() as any
-  const title = ref('这个是首页')
+  onMounted(() => {
+    getData()
+  })
+  const title = ref('这是测试页面')
 
+  // 获取store app的值
   const useAppState = useAppStore()
   const text = computed(() => useAppState.getTest)
 
@@ -46,10 +49,12 @@
   function handleClick() {
     useAppState.changeVal()
   }
-  function handleToPath() {
-    proxy.$toast('跳转')
-
-    proxy.$navigate.push('/pages/test/index', { title: title.value })
+  function getData() {
+    const { proxy } = getCurrentInstance() as any
+    // proxy.$showLoading('加载中')
+    const query = proxy.$navigate.query()
+    const title = query.title
+    proxy.$toast('这个来自' + title)
   }
 </script>
 

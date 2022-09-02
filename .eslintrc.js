@@ -5,6 +5,10 @@ module.exports = {
     es2021: true,
     node: true
   },
+  globals: {
+    uni: true, // 定义全局uni对象
+    wx: true
+  },
   parser: 'vue-eslint-parser',
   extends: [
     'plugin:vue/vue3-recommended',

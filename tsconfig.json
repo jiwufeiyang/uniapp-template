@@ -9,6 +9,8 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    // 用字符串当对象的key时报错，报错信息如下 元素隐式具有 “any” 类型，因为类型为 “string” 的表达式不能用于索引类型”
+    "suppressImplicitAnyIndexErrors": true,
     "lib": ["esnext", "dom"],
     "types": ["@dcloudio/types"],
     // 注意：项目使用TypeScript, 我们还需要修改一下ts配置文件

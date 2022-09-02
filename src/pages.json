@@ -6,6 +6,12 @@
       "style": {
         "navigationBarTitleText": "app模板"
       }
+    },
+    {
+      "path": "pages/test/index",
+      "style": {
+        "navigationBarTitleText": "测试页面"
+      }
     }
   ],
   "globalStyle": {
