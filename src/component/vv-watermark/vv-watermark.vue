@@ -9,14 +9,14 @@
         mode="aspectFill"
         v-if="imgUrl != '' && text == ''"
         :style="{ opacity: opacity }"
-      ></image>
+      />
     </block>
   </view>
 </template>
 
 <script>
   export default {
-    name: 'wm-watermark',
+    name: 'WmWatermark',
     props: {
       text: {
         //设置水印文字

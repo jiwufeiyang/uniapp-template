@@ -1,17 +1,12 @@
 <template>
   <view>
-    <view
-      v-if="loading"
-      class="skeleton"
-      :class="{ animate: animate }"
-      :style="{ justifyContent: flexType }"
-    >
+    <view v-if="loading" class="skeleton" :class="{ animate: animate }" :style="{ justifyContent: flexType }">
       <!-- 轮播图 -->
       <view
         v-if="imgTitle"
         class="skeleton-imgTitle"
         style="width: 95%; border-radius: 10px; height: 100px; display: block"
-      ></view>
+      />
       <!-- 头像图 -->
       <template v-if="showAvatar && !imgTitle">
         <view
@@ -20,18 +15,18 @@
           :key="index"
           :class="[avatarShape]"
           :style="{ width: avatarSize, height: avatarSize }"
-        ></view>
+        />
       </template>
       <!-- 文字条 -->
       <view class="skeleton-content" v-if="showTitle && !imgTitle">
-        <view class="skeleton-title" :style="{ width: titleWidth }"></view>
+        <view class="skeleton-title" :style="{ width: titleWidth }" />
         <view class="skeleton-rows">
           <view
             class="skeleton-row-item"
             v-for="(item, index) in rowList"
             :key="index"
             :style="{ width: item.width }"
-          ></view>
+          />
         </view>
       </view>
     </view>

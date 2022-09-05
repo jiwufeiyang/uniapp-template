@@ -7,7 +7,7 @@ import { POST_REQUEST_CONTENT_TYPE } from './constant.js'
  * @param {*} url 请求的地址
  * @param {*} data 请求的数据
  */
-export const doPostJson = (url, data = {}) => {
+export const doPostJson = (url: string, data: object = {}) => {
   return request.post(url, data, {
     header: {
       'Content-Type': POST_REQUEST_CONTENT_TYPE.JSON
@@ -20,7 +20,7 @@ export const doPostJson = (url, data = {}) => {
  * @param {*} url 请求的地址
  * @param {*} data 请求的数据
  */
-export const doPostFormUrl = (url, data = {}) => {
+export const doPostFormUrl = (url: string, data: object = {}) => {
   return request.post(url, data, {
     header: {
       'Content-Type': POST_REQUEST_CONTENT_TYPE.FORMURL
@@ -33,7 +33,7 @@ export const doPostFormUrl = (url, data = {}) => {
  * @param {*} url 请求的地址
  * @param {*} data 请求的数据
  */
-export const doGet = (url, data = {}, header = {}) => {
+export const doGet = (url: string, data: object = {}, header: object = {}) => {
   return request.get(url, {
     header,
     params: data
@@ -45,7 +45,7 @@ export const doGet = (url, data = {}, header = {}) => {
  * @param {*} url 请求的地址
  * @param {*} data 请求的数据
  */
-export const doDelete = (url, data = {}) => {
+export const doDelete = (url: string, data: object = {}) => {
   return request.delete(url, data, {
     header: {
       'Content-Type': POST_REQUEST_CONTENT_TYPE.FORMURL
@@ -59,7 +59,7 @@ export const doDelete = (url, data = {}) => {
  * @param {*} data 参数同 uni.uploadFile 初url之外的参数， 注意看平台差异
  * @returns
  */
-export const doFileUpload = (url, data = {}) => {
+export const doFileUpload = (url: string, data: object = {}) => {
   return request.upload(url, {
     ...data
     // header: {
@@ -74,6 +74,6 @@ export const doFileUpload = (url, data = {}) => {
  * @param {*} data
  * @returns 参数同 uni.downloadFile 初url之外的参数， 注意看平台差异
  */
-export const doFileDownload = (url, data = {}) => {
+export const doFileDownload = (url: string, data: object = {}) => {
   return request.download(url, data)
 }

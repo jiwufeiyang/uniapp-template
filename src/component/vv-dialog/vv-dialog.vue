@@ -5,7 +5,7 @@
       @click="handleMaskClick"
       @transitionend="handleTransitionend"
       :class="{ 'vv-dialog__mask-animate': show }"
-    ></view>
+    />
     <view
       class="vv-dialog__content"
       :style="style"
@@ -14,7 +14,7 @@
       <view class="vv-dialog__title-con">
         <view class="vv-dialog__title">{{ title }}</view>
         <view class="vv-dialog__icon-close" @click="handleClose" v-if="showClose">
-          <uni-icons type="closeempty" color="#666" size="38rpx"></uni-icons>
+          <uni-icons type="closeempty" color="#666" size="38rpx" />
         </view>
       </view>
       <slot></slot>
@@ -68,6 +68,17 @@
         inner: false
       }
     },
+    computed: {
+      // 手续处理
+      ...mapGetters(['statusBarHeight', 'navigatorMenuHeight']),
+      style() {
+        // 判断是否向下弹窗
+        let style = this.showLayoutBottom ? `bottom: -${this.statusBarHeight + this.navigatorMenuHeight}px;` : ''
+        // 增加弹窗宽度设置
+        style = style + `;width: ${this.showLayoutBottom ? '100%' : this.width + 'rpx'}`
+        return style
+      }
+    },
     watch: {
       visible: {
         handler(n, o) {
@@ -85,25 +96,13 @@
         immediate: true
       }
     },
-    computed: {
-      ...mapGetters(['statusBarHeight', 'navigatorMenuHeight']),
-      style() {
-        // 判断是否向下弹窗
-        let style = this.showLayoutBottom
-          ? `bottom: -${this.statusBarHeight + this.navigatorMenuHeight}px;`
-          : ''
-        // 增加弹窗宽度设置
-        style = style + `;width: ${this.showLayoutBottom ? '100%' : this.width + 'rpx'}`
-        return style
-      }
-    },
     methods: {
       handleTransitionend() {
         if (!this.show && !this.inner) {
           this.baseShow = false
         } else if (!this.show) {
           this.inner = true
-          this.$emit('update:visible', false)
+          //  this.$emit('update:visible', false)
         }
       },
       handleClose() {

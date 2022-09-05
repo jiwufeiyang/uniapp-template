@@ -1,6 +1,6 @@
 import Request from 'luch-request'
 const instance = new Request({
-  baseURL: 'http://192.168.3.145:3000',
+  baseURL: '',
   header: {
     'Content-Type': 'application/json'
   }
