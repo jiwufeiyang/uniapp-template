@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
   import { onLoad, onShow } from '@dcloudio/uni-app'
-  import { ref, getCurrentInstance, computed, watch } from 'vue'
+  import { ref, getCurrentInstance, computed, watch, onMounted } from 'vue'
   import { useAppStore } from '/@/store/modules/app'
 
   onLoad((options) => {
@@ -30,6 +30,11 @@
     let style = ''
     // do something
     return style
+  })
+
+  onMounted(()=> {
+    console.log(import.meta.env, import.meta.VITE_MODE_NAME);
+    
   })
 
   //  假设监听 一个 name 变量

@@ -6,11 +6,11 @@ const instance = new Request({
   }
 })
 
-instance.interceptors.request.use((config) => {
+instance.interceptors.request.use((config:any) => {
   return config
 })
 
-instance.interceptors.response.use((result) => {
+instance.interceptors.response.use((result: any) => {
   return result
 })
 

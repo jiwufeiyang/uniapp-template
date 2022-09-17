@@ -7,7 +7,7 @@ function pathResolve(dir: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // loadEnv加载__dirname目录下的 mode文件，若mode为'test',则加载.env.test文件。
+  // 获取env所在路径
   const env = loadEnv(mode, __dirname)
   return {
     plugins: [uni()],
@@ -20,6 +20,19 @@ export default defineConfig(({ mode }) => {
         }
       ]
     },
-    base: env.VITE_APP_PROXY_URL // 获取环境变量
+    base: '/',
+    envDir: resolve(__dirname, 'config'),
+    // 设置代理
+    server: {
+      port: 3001,
+      host: '127.0.0.1',
+      proxy: {
+        '/api': {
+          target: 'http://' + env.VITE_APP_PROXY_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '/')
+        }
+      }
+    }
   }
 })

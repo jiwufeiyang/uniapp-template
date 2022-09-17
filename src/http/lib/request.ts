@@ -16,7 +16,7 @@ interceptorsRequest.forEach((func) => {
   instance.interceptors.request.use(func)
 })
 
-instance.interceptors.response.use(handleResData, (error) => {
+instance.interceptors.response.use(handleResData, (error:any) => {
   const config: any = error.config
 
   console.error('HTTP状态码异常！', error)
