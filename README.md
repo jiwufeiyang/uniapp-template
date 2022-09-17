@@ -22,9 +22,12 @@
 ### 配置 prettier 代码规范空格等定义 .prettierignore配置不需要的校验
 
     pnpm add prettier -D
-    解决 eslint 和 prettier 冲突  --安装 eslint-config-prettier
-    解决 ESLint 中的样式规范和 prettier 中样式规范的冲突，以 prettier 的样式规范为准，使 ESLint 中的样式规范自动失效 --安装 eslint-plugin-prettier
+
+    解决 eslint 和 prettier 冲突  --安装 pnpm add eslint-config-prettier -D
+    解决 ESLint 中的样式规范和 prettier 中样式规范的冲突，以 prettier 的样式规范为准，使 ESLint 中的样式规范自动失效 --安装 pnpm add eslint-plugin-prettier -D
     eslint-plugin-prettier插件会调用prettier对你的代码风格进行检查，其原理是先使用prettier对你的代码进行格式化，然后与格式化之前的代码进行对比，如果过出现了不一致，这个地方prettier进行标记。
+    新建.prettierignore，.prettierrc文件
+
       
 ### 使用husky和lint-staged构建代码
     安装依赖
@@ -64,6 +67,11 @@
         "path": "cz-conventional-changelog"
         }
     }
+
+### 安装styleLint
+    pnpm add stylelint stylelint-config-prettier stylelint-config-standard stylelint-order -D
+    新建stylelint.config.js .stylelintignore文件配置即可
+
 ### 安装dart-sass代替node-sass
     pnpm add sass -S -D
 ### 使用Pinia状态管理
@@ -72,4 +80,71 @@
 ### 安装网络请求工具 https://www.quanzhan.co/luch-request/
     pnpm add luch-request -S
 
-   
+### 项目结构
+
+```
+uniapp-template
+├─ .eslintignore
+├─ .eslintrc.js
+├─ .gitignore
+├─ .prettierignore
+├─ .prettierrc.js
+├─ .stylelintignore
+├─ .vscode
+│  └─ settings.json
+├─ index.html
+├─ package.json
+├─ pnpm-lock.yaml
+├─ README.md
+├─ src
+│  ├─ apiService
+│  │  └─ cardServer
+│  │     └─ wxUser.js
+│  ├─ App.vue
+│  ├─ component
+│  │  ├─ vv-dialog
+│  │  │  └─ vv-dialog.vue
+│  │  ├─ vv-skeleton
+│  │  │  ├─ README.md
+│  │  │  └─ vv-skeleton.vue
+│  │  └─ vv-watermark
+│  │     └─ vv-watermark.vue
+│  ├─ config.ts
+│  ├─ env.d.ts
+│  ├─ env.dev
+│  ├─ env.pro
+│  ├─ env.test
+│  ├─ http
+│  │  ├─ constant.ts
+│  │  ├─ index.ts
+│  │  ├─ interceptor
+│  │  │  ├─ request.ts
+│  │  │  └─ respone.ts
+│  │  └─ lib
+│  │     ├─ fileRequest.ts
+│  │     └─ request.ts
+│  ├─ main.ts
+│  ├─ manifest.json
+│  ├─ pages
+│  │  ├─ index
+│  │  │  └─ index.vue
+│  │  └─ test
+│  │     └─ index.vue
+│  ├─ pages.json
+│  ├─ static
+│  │  └─ logo.png
+│  ├─ store
+│  │  ├─ index.ts
+│  │  └─ modules
+│  │     └─ app.ts
+│  ├─ uni.scss
+│  └─ util
+│     ├─ auth.ts
+│     ├─ index.ts
+│     ├─ router.ts
+│     └─ storage.ts
+├─ stylelint.config.js
+├─ tsconfig.json
+└─ vite.config.ts
+
+```

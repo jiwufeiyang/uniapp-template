@@ -76,6 +76,10 @@
     "pinia": "^2.0.21",
     "prettier": "^2.7.1",
     "sass": "^1.54.8",
+    "stylelint": "^14.11.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-order": "^5.0.0",
     "typescript": "*",
     "vite": "^2.9.14"
   },
